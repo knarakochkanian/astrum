@@ -16,7 +16,7 @@ export function Footer() {
               <Logo />
             </Link>
             <p className="text-sm mb-4">
-              Your journey begins with Astrum Voyager. Discover amazing destinations and plan your perfect trip with us.
+              Your journey begins with Аструм-Тревел. Discover amazing destinations and plan your perfect trip with us.
             </p>
             <div className="flex space-x-3">
               <Link href="#" aria-label="Facebook" className="text-muted-foreground hover:text-primary transition-colors">
@@ -69,7 +69,7 @@ export function Footer() {
         </div>
 
         <div className="border-t mt-8 pt-8 text-center text-sm">
-          <p>&copy; {currentYear} Astrum Voyager. All rights reserved. Crafted with passion.</p>
+          <p>&copy; {currentYear} Аструм-Тревел. All rights reserved. Crafted with passion.</p>
         </div>
       </div>
     </footer>

@@ -8,10 +8,9 @@ import { Menu, X, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
-  { href: '#hero', label: 'Home' },
-  { href: '#popular-destinations', label: 'Destinations' },
-  { href: '#ai-planner', label: 'AI Planner' },
-  { href: '#about', label: 'About Us' },
+  { href: '#popular-destinations', label: 'Предназначение' },
+  { href: '#ai-planner', label: 'Планировщик путешествий ИИ' },
+  { href: '#about', label: 'О нас' },
 ];
 
 export function Header() {
@@ -37,7 +36,7 @@ export function Header() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2" aria-label="Astrum Voyager Home">
+          <Link href="/" className="flex items-center" aria-label="/Аструм-Тревел">
             <Logo className={cn(isScrolled ? 'text-primary' : 'text-white')} />
           </Link>
 
@@ -47,7 +46,7 @@ export function Header() {
                 key={item.label}
                 href={item.href}
                 className={cn(
-                  'text-sm font-medium transition-colors hover:text-accent',
+                  'text-lg font-medium transition-colors hover:text-accent',
                   isScrolled ? 'text-foreground' : 'text-primary-foreground'
                 )}
               >
@@ -57,11 +56,9 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="outline" size="sm" className={cn(isScrolled ? '' : 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10')}>
-              <Globe className="mr-2 h-4 w-4" /> EN
-            </Button>
+
             <Button variant="accent" size="sm">
-              Book Now
+           Забронировать сейчас
             </Button>
           </div>
 
@@ -87,7 +84,7 @@ export function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="block rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-accent hover:text-accent-foreground"
+                className="block text-l rounded-md px-3 py-2 font-medium text-foreground hover:bg-accent hover:text-accent-foreground"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

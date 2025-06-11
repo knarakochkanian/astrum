@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Astrum Voyager',
-  description: 'Explore your next adventure with Astrum Voyager',
+  title: 'Аструм-Тревел',
+  description: 'Турфирма Аструм-Тревел ( Тверь )',
 };
 
 export default function RootLayout({

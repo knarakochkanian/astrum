@@ -20,12 +20,12 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
         x="5"
         y="35"
         fontFamily="var(--font-playfair-display), serif"
-        fontSize="28"
+        fontSize="26"
         fontWeight="bold"
         fill="url(#logoGradient)"
         className="font-headline"
       >
-        Astrum Voyager
+        Аструм-Тревел
       </text>
     </svg>
   );

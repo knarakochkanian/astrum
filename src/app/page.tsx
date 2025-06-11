@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from 'next/image';
 import { Users, Compass, Heart } from 'lucide-react';
+import {TestimonialsSection} from "@/components/ui/testimonials-section";
 
 
 const DUMMY_DESTINATIONS_INITIAL: Destination[] = [
@@ -79,9 +80,9 @@ export default function Home() {
         <HeroSection />
 
         <SectionWrapper id="popular-destinations">
-          <h2 className="text-3xl md:text-4xl font-headline text-center mb-4 text-primary">Popular Destinations</h2>
+          <h2 className="text-3xl md:text-4xl font-headline text-center mb-4 text-primary">Популярные направления</h2>
           <p className="text-center text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Explore our curated selection of top-rated travel spots, beloved by adventurers and wanderers alike.
+            Познакомьтесь с нашей тщательно отобранной подборкой самых популярных туристических мест, любимых как искателями приключений, так и путешественниками.
           </p>
           <DestinationFilters
             priceRange={priceRange}
@@ -124,31 +125,53 @@ export default function Home() {
             <AiTravelForm />
           </div>
         </SectionWrapper>
-
+        <TestimonialsSection/>
         <SectionWrapper id="about">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-headline mb-6 text-primary">About Astrum Voyager</h2>
+              <h2 className="text-3xl md:text-4xl font-headline mb-6 text-primary">Турфирма Аструм-Тревел </h2>
               <p className="text-lg text-muted-foreground mb-4">
-                At Astrum Voyager, we believe travel is more than just visiting new places; it's about creating lasting memories, discovering diverse cultures, and embarking on personal journeys of growth. Our mission is to make your dream vacations a reality with seamless planning and expert guidance.
-              </p>
-              <p className="text-lg text-muted-foreground mb-6">
-                With years of experience and a passion for exploration, our team curates unique travel experiences tailored to your preferences. From luxurious getaways to adventurous expeditions, we're here to guide you every step of the way.
+                Являемся туроператором по внутреннему туризму (реестровый номер ВНТ 013003).
+
+                <p className="text-lg text-muted-foreground mb-4">  Предлагаем:
+
+                Экскурсионные туры из Твери: Москва, Санкт-Петербург, Золотое кольцо, Карелия, Белоруссия и др.
+
+                Пляжный отдых на Черноморском побережье.
+
+                Поездки в театры, музеи, торговые центры.
+
+                Индивидуальный подход и высокое качество обслуживания.</p>
+
+                <p className="text-lg text-muted-foreground mb-4">
+
+                Надёжность и безопасность:
+
+                Все поездки лицензированы и застрахованы.
+
+                Профессиональные водители с регулярной аттестацией.
+
+                Отличное техническое состояние автобусов.
+
+                Дополнительные удобства:
+
+                Видеоразвлечения, кофеварка, регулируемые сиденья, индивидуальное освещение и вентиляция.
+                </p>
+
               </p>
               <Button variant="accent" size="lg" asChild>
                 <a href="#">Learn More About Us</a>
               </Button>
             </div>
-            <div className="relative h-80 md:h-96 rounded-lg overflow-hidden shadow-xl group">
+            <div className="relative h-full rounded-lg overflow-hidden group">
                <Image
-                src="https://placehold.co/800x600"
+                src="/home/svidetelstvo2021.jpg"
                 alt="Happy travelers exploring"
                 data-ai-hint="travelers map"
                 layout="fill"
-                objectFit="cover"
-                className="transform transition-transform duration-500 group-hover:scale-110"
+                objectFit="contain"
+                className="transform h-full transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             </div>
           </div>
            <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
