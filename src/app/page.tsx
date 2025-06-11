@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from 'next/image';
 import { Users, Compass, Heart } from 'lucide-react';
-import { TestimonialsSection } from "@/components/ui/testimonials-section";
+// import { TestimonialsSection } from "@/components/ui/testimonials-section";
 
 
 const DUMMY_DESTINATIONS_INITIAL: Destination[] = [
@@ -125,7 +125,7 @@ export default function Home() {
             <AiTravelForm />
           </div>
         </SectionWrapper>
-        <TestimonialsSection/>
+        {/*<TestimonialsSection/>*/}
         <SectionWrapper id="about">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
