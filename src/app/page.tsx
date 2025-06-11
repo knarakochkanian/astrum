@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from 'next/image';
 import { Users, Compass, Heart } from 'lucide-react';
-import {TestimonialsSection} from "@/components/ui/testimonials-section";
+import { TestimonialsSection } from "@/components/ui/testimonials-section";
 
 
 const DUMMY_DESTINATIONS_INITIAL: Destination[] = [
