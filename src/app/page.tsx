@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { HeroSection } from '@/components/ui/hero-section';
+import  HeroSection  from '@/components/ui/hero-section';
 import { DestinationCard } from '@/components/destination-card';
 import { AiTravelForm } from '@/components/ai-travel-form';
 import { SectionWrapper } from '@/components/shared/section-wrapper';
@@ -17,12 +17,13 @@ import { Users, Compass, Heart } from 'lucide-react';
 
 
 const DUMMY_DESTINATIONS_INITIAL: Destination[] = [
-  { id: '1', name: 'Parisian Dream', country: 'France', description: 'Experience the city of lights, art, and romance with its iconic landmarks.', imageUrl: 'https://placehold.co/600x401', imageHint: 'paris eiffel', priceRange: 'luxury', rating: 4.8, tags: ['city', 'romance', 'culture'], detailsUrl: '#' },
-  { id: '2', name: 'Roman Holiday', country: 'Italy', description: 'Explore ancient ruins, stunning art, and vibrant Italian culture in the eternal city.', imageUrl: 'https://placehold.co/600x402', imageHint: 'rome colosseum', priceRange: 'mid-range', rating: 4.5, tags: ['history', 'city', 'culture'], detailsUrl: '#' },
-  { id: '3', name: 'Tropical Paradise', country: 'Maldives', description: 'Relax on pristine white-sand beaches and swim in crystal-clear turquoise waters.', imageUrl: 'https://placehold.co/600x403', imageHint: 'maldives beach', priceRange: 'luxury', rating: 4.9, tags: ['beach', 'relax', 'nature'], detailsUrl: '#' },
-  { id: '4', name: 'Alpine Adventure', country: 'Switzerland', description: 'Hike through breathtaking alpine scenery, charming villages, and serene lakes.', imageUrl: 'https://placehold.co/600x404', imageHint: 'swiss alps', priceRange: 'mid-range', rating: 4.7, tags: ['mountains', 'adventure', 'nature'], detailsUrl: '#' },
-  { id: '5', name: 'Kyoto Serenity', country: 'Japan', description: 'Discover ancient temples, tranquil gardens, and the rich traditions of Japan.', imageUrl: 'https://placehold.co/600x405', imageHint: 'kyoto temple', priceRange: 'mid-range', rating: 4.6, tags: ['culture', 'history', 'nature'], detailsUrl: '#' },
-  { id: '6', name: 'Santorini Sunsets', country: 'Greece', description: 'Witness iconic sunsets over the Aegean Sea from whitewashed cliffside villages.', imageUrl: 'https://placehold.co/600x406', imageHint: 'santorini caldera', priceRange: 'luxury', rating: 4.9, tags: ['beach', 'romance', 'views'], detailsUrl: '#' },
+  { id: '1', name: 'Итальянский Дворик', country: 'Геленджик', description: 'Гостевой дом "Итальянский Дворик" находится в центре города и обладает ценными преимуществами: тишина, спокойствие, летняя прохлада, уют домашней обстановки, морской воздух, удобные условия для жизни и отдыха в течение всего года.', imageUrl: '/home/italyanskiy.png', imageHint: 'paris eiffel', priceRange: 'luxury', rating: 4.8, tags: ['city', 'romance', 'culture'], detailsUrl: '#' },
+  { id: '2', name: 'Лилона', country: 'Лазаревское', description: 'Гостевой дом «Лилона» представляет собой новое современное строение, включающее в себя два спальных корпуса, гармонично объединенных одним вестибюлем и рядом коридорных и лестничных переходов. Оба корпуса имеют единый парадный вход. Круглосуточно на территории гостевого дома ведется видеонаблюдение.', imageUrl: '/home/1-lilona.jpg', imageHint: 'rome colosseum', priceRange: 'mid-range', rating: 4.5, tags: ['history', 'city', 'culture'], detailsUrl: '#' },
+  { id: '3', name: 'Массандра', country: 'Лоо', description: 'Всего в 200х метрах от хорошего пляжа Лоо-1 и Магадан. Это 3−5 минут неспешным шагом. Имеется пригорок с  лесенкой метров 20.', imageUrl: '/home/massandra_loo_1.jpg', imageHint: 'maldives beach', priceRange: 'luxury', rating: 4.9, tags: ['beach', 'relax', 'nature'], detailsUrl: '#' },
+  { id: '4', name: 'Горизонт', country: 'Лазаревское', description: 'Гостевой дом «Горизонт» расположен на территории филиала турбазы «Чайка». Дорога к морю занимает 3 минуты ходьбы. Пляж с развитой инфраструктурой, не очень многолюдный, оборудованный, со множеством морских развлечений и с прокатом пляжного инвентаря.', imageUrl: '/home/1-gorizont-sochi-lazarevskoe.jpg', imageHint: 'swiss alps', priceRange: 'mid-range', rating: 4.7, tags: ['mountains', 'adventure', 'nature'], detailsUrl: '#' },
+  { id: '5', name: 'У фонтана', country: 'Геленджик', description: 'Гостевой дом "У Фонтана" расположен в городе-курорте Геленджик в 10-15 минутах ходьбы от берега Черного моря. В шаговой доступности вся необходимая инфраструктура курорта: песчаный и галечный пляж, аквапарк, дельфинарий, рынок, магазины, сувенирные лавочки, аптека, остановка общественного транспорта.', imageUrl: '/home/1-u-fontana-gelendzhik.jpg', imageHint: 'kyoto temple', priceRange: 'mid-range', rating: 4.6, tags: ['culture', 'history', 'nature'], detailsUrl: '#' },
+  { id: '6', name: 'Анна-Мария', country: 'Лоо', description: 'Гостевой дом «Анна-Мария» расположен в одном из популярнейших курортов Большого Сочи — в центральной части поселка Лоо. Дом находится очень удобно, рядом вокзал, но поездов не слышно, так же не надо подыматься в гору.', imageUrl: '/home/1-loo-anna-mariya.jpg', imageHint: 'maldives beach', priceRange: 'luxury', rating: 4.9, tags: ['beach', 'relax', 'nature'], detailsUrl: '#' },
+
 ];
 
 const ITEMS_PER_PAGE = 6;
@@ -132,7 +133,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-headline mb-6 text-primary">Турфирма Аструм-Тревел </h2>
               <p className="text-lg text-muted-foreground mb-4">
                 Являемся туроператором по внутреннему туризму (реестровый номер ВНТ 013003).
-
+              </p>
                 <p className="text-lg text-muted-foreground mb-4">  Предлагаем:
 
                 Экскурсионные туры из Твери: Москва, Санкт-Петербург, Золотое кольцо, Карелия, Белоруссия и др.
@@ -142,6 +143,7 @@ export default function Home() {
                 Поездки в театры, музеи, торговые центры.
 
                 Индивидуальный подход и высокое качество обслуживания.</p>
+
 
                 <p className="text-lg text-muted-foreground mb-4">
 
@@ -158,7 +160,7 @@ export default function Home() {
                 Видеоразвлечения, кофеварка, регулируемые сиденья, индивидуальное освещение и вентиляция.
                 </p>
 
-              </p>
+
               <Button variant="accent" size="lg" asChild>
                 <a href="#">Learn More About Us</a>
               </Button>

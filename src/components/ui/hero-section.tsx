@@ -1,57 +1,100 @@
+'use client';
+
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 
-export function HeroSection() {
-  return (
-      <section id="hero"
-               className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-primary-foreground overflow-hidden">
-          <div className="relative w-full h-[500px]">
-              <Image
-                  src="/home/bus.jpg"
-                  alt="Breathtaking travel destination"
-                  layout="fill"
-                  objectFit="cover"
-                  quality={80}
-                  className="z-0"
-                  priority
-              />
-          </div>
+const slides = [
+    {
+        image: '/home/slide1.jpg',
+        title: 'Путешествие в горы',
+        description: 'Ощутите величие природы и чистый воздух высокогорья.',
+    },
+    {
+        image: '/home/slide2.jpg',
+        title: 'Морской бриз',
+        description: 'Расслабьтесь у моря и наслаждайтесь солнцем.',
+    },
+    {
+        image: '/home/slide3.jpg',
+        title: 'Городские приключения',
+        description: 'Исследуйте улицы, музеи и культуру мегаполисов.',
+    },
+];
 
-          <div className="absolute inset-0 bg-black/50 z-10"></div>
+export default function HeroSection() {
+    return (
+        <section
+            id="hero"
+            className="relative h-screen min-h-[600px] flex items-center justify-center text-primary-foreground overflow-hidden"
+        >
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/home/bus.jpg"
+                    alt="Background"
+                    layout="fill"
+                    objectFit="cover"
+                    quality={80}
+                    className="z-0"
+                    priority
+                />
+                <div className="absolute inset-0 bg-black/50" />
+            </div>
 
-          <div className="relative z-20 container mx-auto px-4 md:px-6 animate-fade-in">
-              <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-                  Откройте для себя новые горизонты
-              </h1>
-              <p className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-10">
-                  Погрузитесь в мир захватывающих путешествий, уникальных культур и незабываемых впечатлений вместе с
-                  Аструм-Тревел.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
-                      size="lg"
-                      variant="accent"
-                      className="font-semibold text-lg px-8 py-6 shadow-lg transform transition-transform hover:scale-105"
-                  >
-                      Посмотреть туры
-                      <ChevronRight className="ml-2 h-5 w-5"/>
-                  </Button>
-                  <Button
-                      size="lg"
-                      variant="outline"
-                      className="font-semibold text-lg px-8 py-6 shadow-lg border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 transform transition-transform hover:scale-105"
-                  >
-                      Спланировать поездку
-                  </Button>
-              </div>
-          </div>
+            <div className="relative z-20 container mx-auto px-4 md:px-6 animate-fade-in">
+                <Swiper
+                    spaceBetween={30}
+                    centeredSlides={true}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    navigation={true}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    className="mySwiper mb-12"
+                >
+                    {slides.map((slide, index) => (
+                        <SwiperSlide key={index}>
+                            <div className=" rounded-2xl overflow-hidden shadow-xl max-w-5xl mx-auto flex flex-col md:flex-row text-black">
+                                <div className="relative w-full md:w-1/2 h-64 md:h-auto">
+                                    <Image
+                                        src={slide.image}
+                                        alt={slide.title}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        className="w-full h-full"
+                                    />
+                                </div>
 
+                                {/* Right: Text */}
+                                <div className="w-full md:w-1/2 p-8 flex flex-col justify-center items-start text-left">
+                                    <h3 className="text-2xl font-bold mb-4">{slide.title}</h3>
+                                    <p className="text-base mb-6">{slide.description}</p>
+                                    <Button
+                                        variant="accent"
+                                        className="font-semibold text-sm px-6 py-3 shadow-md hover:scale-105 transition-transform"
+                                    >
+                                        Подробнее
+                                        <ChevronRight className="ml-2 h-4 w-4" />
+                                    </Button>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
 
-          {/* Subtle Parallax/Animation element if desired */}
-          {/* Example: A subtle animated gradient or pattern */}
-          <div
-              className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10"></div>
-      </section>
-  );
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
+        </section>
+    );
 }

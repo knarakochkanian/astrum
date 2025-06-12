@@ -60,7 +60,7 @@ export function DestinationCard({ destination }: DestinationCardProps) {
       </CardContent>
       <CardFooter className="p-4 border-t">
         <Button asChild variant="accent" className="w-full">
-          <Link href={detailsUrl}>View Details</Link>
+          <Link href={detailsUrl}>Детали</Link>
         </Button>
       </CardFooter>
     </Card>
