@@ -11,6 +11,7 @@ const navItems = [
   { href: '#popular-destinations', label: 'Предназначение' },
   { href: '#ai-planner', label: 'Планировщик путешествий ИИ' },
   { href: '#about', label: 'О нас' },
+  { href: '/table', label: 'График Геленджик' },
 ];
 
 export function Header() {
@@ -76,7 +77,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden absolute top-20 left-0 right-0 bg-background shadow-lg animate-in fade-in-20 slide-in-from-top-5 duration-300">
           <nav className="flex flex-col space-y-2 p-4">

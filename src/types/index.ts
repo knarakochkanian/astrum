@@ -13,3 +13,10 @@ export interface Destination {
 
 export type PriceRange = 'affordable' | 'mid-range' | 'luxury' | 'all';
 export type SortOption = 'popularity' | 'priceLowToHigh' | 'priceHighToLow' | 'name';
+export type TourEntry = {
+  id: number;
+  period: string;
+  elena: { '2m': number; '3m': number };
+  italian: { '2m': number; '3m': number };
+  irina: { '2m': number; '3m': number };
+};
